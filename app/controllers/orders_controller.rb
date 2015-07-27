@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
 
- before_action :authenticate_user!
- 
+ before_action :authenticate_user!, except: :allpay_notify
+ protect_from_forgery except: :allpay_notify
+
   def create
     @order = current_user.orders.build(order_params)
  
@@ -9,6 +10,7 @@ class OrdersController < ApplicationController
       @order.build_item_cache_from_cart(current_cart)
       @order.calculate_total!(current_cart)
       current_cart.clean!
+      OrderMailer.notify_order_placed(@order).deliver!
       redirect_to order_path(@order.token)
     else
       render "carts/checkout"
