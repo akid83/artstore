@@ -41,7 +41,8 @@ gem "mini_magick"
 gem "font-awesome-rails"
 
 gem "aasm"
-
+gem "activemerchant",         "~> 1.43.1"
+gem "active_merchant_allpay", ">=0.1.2"
 group :development do
   gem "annotate"
   gem "letter_opener"
@@ -63,8 +64,7 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem "roadie", "2.4.3"
-  gem "activemerchant",         "~> 1.43.1"
-  gem "active_merchant_allpay", ">=0.1.2"
+
 
 end
 
