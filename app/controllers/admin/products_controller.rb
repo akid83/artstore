@@ -1,13 +1,8 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < AdminController
   
-  layout "admin"
-  
-  before_action :authenticate_user!
-  before_action :admin_required
-
   def new
     @product = Product.new
-    @photo = @product.photos.new
+    @photo = @product.photo.new
   end
 
   def create
@@ -42,7 +37,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price, :photos_attributes => [:image] )
+    params.require(:product).permit(:title, :description, :quantity, :price, :photo_attributes => [:image] )
   end
 
 end

@@ -76,4 +76,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { host: 'oscarshop.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:           587,
+    address:        "smtp.mailgun.org",
+    user_name:      "postmaster@sandbox8cc4b0cf34ab444da4c91c53ada84841.mailgun.org", # 你的 mailgun 的 user_name ( 見第三堂作業 1 解答 )
+    password:       "fe3520432b996133e00611d3bb293e5c", # 你的 mailgun 的 password ( 見第三堂作業 1 解答 )
+    domain:         "sandboxd321bed1624b4744b456caca384107f8.mailgun.org",
+    authentication: :plain,
+  }
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.integration_mode = :development # 取得正式 key 以後再改成 :production
+  end
+
 end
