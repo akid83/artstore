@@ -64,6 +64,7 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem "roadie", "2.4.3"
+  gem "fog"
   gem "fog-aws"
   gem "seo_helper"
 
