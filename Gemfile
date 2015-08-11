@@ -52,12 +52,13 @@ end
 group :production do 
   gem "pg"
   gem "rails_12factor"
-end
 
-gem "roadie", "2.4.3"
-gem "fog"
-gem "fog-aws"
-gem "seo_helper"
+  gem "roadie", "2.4.3"
+  gem "fog"
+  gem "fog-aws"
+  gem "seo_helper"
+
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
